@@ -1,23 +1,24 @@
+// tsconfig.json
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "CommonJS",
-    "outDir": "./dist",
-    "rootDir": "./src",
+    "target": "ES2016", // Или новее
+    "module": "CommonJS", // Важно для Node.js и require()
+    "outDir": "./dist", // Куда компилировать JS
+    "rootDir": "./src", // Где лежат исходники TS
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "sourceMap": true,
-    "baseUrl": "./src", // Позволяет использовать пути от src
+
+    // --- Настройки для псевдонимов ---
+    "baseUrl": ".", // <-- Базовый URL - корень проекта
     "paths": {
-      "@/*": ["*"] // Алиас для путей: import ... from '@/...'
-    },
-    "experimentalDecorators": true, // Если планируете использовать декораторы
-    "emitDecoratorMetadata": true   // Если планируете использовать декораторы
+      "@/*": ["./src/*"] // <-- Исходные пути для TS (для компиляции)
+                         // tsconfig-paths использует это вместе с baseUrl и outDir
+                         // чтобы понять, где искать скомпилированные файлы.
+                         // Он поймет, что '@/config' -> './src/config' -> './dist/config.js'
+    }
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts"] // Исключаем node_modules и тестовые файлы
+  "include": ["src/**/*"], // Какие файлы включать в компиляцию
+  "exclude": ["node_modules", "**/*.spec.ts"] // Какие исключить
 }

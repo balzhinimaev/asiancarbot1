@@ -2,8 +2,7 @@
 import { Context } from "telegraf";
 // Импортируем конфигурацию АДМИН-БОТА, чтобы получить список разрешенных ID
 // Убедитесь, что путь правильный (может быть '../config' или '@/config')
-import { config } from "@/config";
-
+import { config } from '../config'
 /**
  * Middleware для проверки, имеет ли пользователь право использовать админ-бота.
  * Пропускает дальше только если ctx.from.id есть в списке config.adminBotUserIds.

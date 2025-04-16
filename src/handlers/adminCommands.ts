@@ -3,9 +3,10 @@
 // (тем, кто прошел проверку в middleware isAdmin).
 // Он используется в админ-боте (asiancar-rates-admin).
 
+import CurrencyRateModel, { CurrencyCode } from "../models/CurrencyRate.model";
 import { Context } from "telegraf";
 // Импортируем модель для работы с базой данных курсов
-import CurrencyRateModel, { CurrencyCode } from "@/models/CurrencyRate.model";
+// import CurrencyRateModel, { CurrencyCode } from "@/models/CurrencyRate.model";
 // Импортируем стандартные сообщения (например, для ошибок), если нужно
 // import { messages } from '@/constants/messages'; // Если есть общие сообщения
 

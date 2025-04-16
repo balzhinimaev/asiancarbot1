@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/app.js",
+    "start": "node -r tsconfig-paths/register dist/app.js",
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify src/app.ts",
     "lint": "eslint src/**/*.ts",
     "format": "prettier --write src/**/*.ts"
